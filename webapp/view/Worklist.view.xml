@@ -1,0 +1,79 @@
+<mvc:View xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic" 
+		  xmlns:l="sap.ui.layout" xmlns:footerbar="sap.ushell.ui.footerbar" controllerName="com.app.controller.Worklist">
+
+	<semantic:FullscreenPage id="page" navButtonPress="onNavBack" showNavButton="true" title="{i18n>worklistViewTitle}">
+					
+		<semantic:content>
+			<l:HorizontalLayout>
+				<l:content>
+					<Button id="openMenu" text="Menu" type="Emphasized" press="handlePressOpenMenu" />
+				</l:content>
+			</l:HorizontalLayout>
+				
+			<IconTabBar id="pizzaFilters" class="sapUiResponsiveContentPadding" select="onQuickFilter">
+			<items>
+				<IconTabFilter showAll="true" text="All Orders" key="all"/>
+				<IconTabSeparator/>
+				<IconTabFilter icon="sap-icon://lead" iconColor="Critical" text="Under 15" key="below15"/>
+				<IconTabFilter icon="sap-icon://money-bills" iconColor="Positive" text="Above 15" key="above15"/>
+			</items>
+			<content>
+			<Table id="table" width="auto" class="sapUiResponsiveMargin" items="{      path: '/OrderListSet'     }" noDataText="{worklistView>/tableNoDataText}" busyIndicatorDelay="{worklistView>/tableBusyDelay}" growing="true" growingScrollToLoad="true" updateFinished="onUpdateFinished">
+				
+				<headerToolbar>
+					<Toolbar>
+						<Title id="tableHeader" text="{worklistView>/worklistTableTitle}"/>
+						<ToolbarSpacer/>
+						<SearchField id="searchField" tooltip="{i18n>worklistSearchTooltip}" search="onSearch" width="auto">
+						</SearchField>
+					</Toolbar>
+				</headerToolbar>
+				
+				<columns>
+					<Column id="nameColumn">
+						<Text text="{i18n>pizzaID}" id="nameColumnTitle"/>
+					</Column>
+					
+					<Column id="pizzaAmount" minScreenWidth="380px">
+						<Text text="{i18n>pizzaAmount}" id="pizzaAmountText" textAlign="Center"/>
+					</Column>
+					
+					<Column id="orderDate" minScreenWidth="510px">
+						<Text text="{i18n>orderDate}" id="pizzaOrderDate"/>
+					</Column>
+					
+					<Column id="unitNumberColumn" hAlign="Right">
+						<Text text="{i18n>tableUnitNumberColumnTitle}" id="unitNumberColumnTitle"/>
+					</Column>
+				</columns>
+
+				<items>
+					<ColumnListItem type="Navigation" press="onPress">
+						<cells>
+							<ObjectNumber number="{          path: 'Zoid',          formatter: '.formatter.leadZeroRemove'         }"/>
+							<ObjectNumber number="{          path: 'Zppiece',          formatter: '.formatter.leadZeroRemove'         }"/>
+							<ObjectIdentifier text="{         path: 'Zdate',         formatter: '.formatter.removeTimeFromDate'         }"/>
+							<ObjectNumber number="{          path: 'Zprice',          formatter: '.formatter.numberUnit'         }" unit="{Zpunit}"/>
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+			</content>
+					</IconTabBar>
+		</semantic:content>
+
+		<semantic:sendEmailAction>
+			<semantic:SendEmailAction id="shareEmail" press="onShareEmailPress"/>
+		</semantic:sendEmailAction>
+
+		<semantic:shareInJamAction>
+			<semantic:ShareInJamAction id="shareInJam" visible="{FLP>/isShareInJamActive}" press="onShareInJamPress"/>
+		</semantic:shareInJamAction>
+
+		<semantic:saveAsTileAction>
+			<footerbar:AddBookmarkButton id="shareTile" title="{worklistView>/saveAsTileTitle}"/>
+		</semantic:saveAsTileAction>
+
+	</semantic:FullscreenPage>
+
+</mvc:View>

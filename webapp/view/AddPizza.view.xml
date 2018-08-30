@@ -1,0 +1,65 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" 
+	xmlns:l="sap.ui.layout" controllerName="com.app.controller.AddPizza"
+	xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page
+		title="Page"
+		class="sapUiContentPadding" >
+		<List
+			headerText="{i18n>addOrder}">
+			<InputListItem label="{i18n>customer}">
+				<Input
+				id = "custName"
+				placeholder="Zadajte meno..."
+				description=" "
+				fieldWidth="65%"
+				maxLength="20"
+				type="Text" />
+			</InputListItem>
+			<InputListItem label="{i18n>pizza}">
+				<Select
+				autoAdjustWidth = "true"
+				id = "pizzaType">
+				<core:Item key="MG" text="Margharita" />
+				<core:Item key="HW" text="Hawai" />
+				<core:Item key="SU" text="Šunková" />
+				<core:Item key="SY" text="Syrová" />
+				<core:Item key="SL" text="Slaninová" />
+				<core:Item key="GZ" text="Gazdovská" />
+				<core:Item key="TU" text="Tuniaková" />
+			</Select>
+			</InputListItem>
+			<InputListItem label="{i18n>pizzaPieces}">
+				<l:VerticalLayout class="sapUiContentPadding" width="100%">
+					<Input
+						id = "pPiece"
+						placeholder="1-9"
+						description="ks"
+						fieldWidth = "25%"
+						type="Number"/>
+				</l:VerticalLayout>
+			</InputListItem>
+		</List>
+		
+		<content>
+			<Toolbar design="Transparent" height="8%">
+				<ToolbarSpacer width="55%"/>
+				<Button type="Accept"
+						width= "25%"
+						text="{i18n>Accept}"
+						press="onSubmit">
+					<layoutData>
+						<FlexItemData growFactor="0" />
+					</layoutData>
+				</Button>
+				<Button type="Reject"
+						width= "20%"
+						text="{i18n>Back}"
+						press="onNavBack">
+					<layoutData>
+						<FlexItemData growFactor="0" />
+					</layoutData>
+			    </Button>
+			</Toolbar>
+		</content>
+	</Page>
+</mvc:View>
