@@ -9,17 +9,17 @@
                 <Key>
                     <PropertyRef Name="Zoid"/>
                 </Key>
-                <Property Name="Zoid" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="OID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="true"/>
-                <Property Name="Zcustname" Type="Edm.String" Nullable="false" MaxLength="55" sap:unicode="false" sap:label="NM" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
-                <Property Name="Zpname" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="PN" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
-                <Property Name="Zppiece" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="PP" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="Zprice" Type="Edm.Decimal" Nullable="false" Precision="16" Scale="3" sap:unicode="false" sap:unit="Zpunit" sap:label="Hodn.netto" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="true"/>
-                <Property Name="Zpunit" Type="Edm.String" Nullable="false" MaxLength="5" sap:unicode="false" sap:label="Mena dokladu" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" sap:semantics="currency-code"/>
-                <Property Name="Zdate" Type="Edm.DateTime" Nullable="false" Precision="7" sap:unicode="false" sap:label="Dátum" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="Ztime" Type="Edm.String" Nullable="false" MaxLength="6" sap:unicode="false" sap:label="Čas" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Zoid" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="OID" sap:creatable="true" sap:updatable="false" sap:sortable="false" sap:filterable="true"/>
+                <Property Name="Zcustname" Type="Edm.String" Nullable="false" MaxLength="55" sap:unicode="false" sap:label="NM" sap:creatable="true" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="Zpname" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="PN" sap:creatable="true" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="Zppiece" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="PP" sap:creatable="true" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Zprice" Type="Edm.Decimal" Nullable="false" Precision="16" Scale="3" sap:unicode="false" sap:unit="Zpunit" sap:label="Hodn.netto" sap:creatable="true" sap:updatable="false" sap:sortable="false" sap:filterable="true"/>
+                <Property Name="Zpunit" Type="Edm.String" Nullable="false" MaxLength="5" sap:unicode="false" sap:label="Mena dokladu" sap:creatable="true" sap:updatable="false" sap:sortable="false" sap:filterable="false" sap:semantics="currency-code"/>
+                <Property Name="Zdate" Type="Edm.DateTime" Nullable="false" Precision="7" sap:unicode="false" sap:label="Dátum" sap:creatable="true" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Ztime" Type="Edm.String" Nullable="false" MaxLength="6" sap:unicode="false" sap:label="Čas" sap:creatable="true" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
             </EntityType>
             <EntityContainer Name="ZODATA_PIZZA_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx">
-                <EntitySet Name="OrderListSet" EntityType="ZODATA_PIZZA_SRV.OrderList" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="OrderListSet" EntityType="ZODATA_PIZZA_SRV.OrderList" sap:creatable="true" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
             </EntityContainer>
             <atom:link
                 xmlns:atom="http://www.w3.org/2005/Atom" rel="self" href="./sap/ZODATA_PIZZA_SRV/$metadata"/>

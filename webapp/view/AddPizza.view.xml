@@ -21,6 +21,10 @@
 				id = "pizzaType">
 				<core:Item key="MG" text="Margharita" />
 				<core:Item key="HW" text="Hawai" />
+				<core:Item key="SA" text="Salámová"/>
+				<core:Item key="SP" text="Špeciál"/>
+				<core:Item key="VJ" text="Vajíčková"/>
+				<core:Item key="CH" text="Chilli"/>
 				<core:Item key="SU" text="Šunková" />
 				<core:Item key="SY" text="Syrová" />
 				<core:Item key="SL" text="Slaninová" />

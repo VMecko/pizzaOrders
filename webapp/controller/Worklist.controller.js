@@ -13,7 +13,7 @@ sap.ui.define([
 		"use strict";
 
 		return BaseController.extend("com.app.controller.Worklist", {
-
+			
 			formatter: formatter,
 
 			/* =========================================================== */
