@@ -1,11 +1,57 @@
-<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="com.app.controller.GeoMap"
-	xmlns:html="http://www.w3.org/1999/xhtml">
+<mvc:View xmlns:core="sap.ui.core" 
+			xmlns:mvc="sap.ui.core.mvc" 
+			xmlns:vbm="sap.ui.vbm"
+			xmlns="sap.m"
+			xmlns:vk="sap.ui.vk" 
+			xmlns:l = "sap.ui.layout"
+  		    controllerName="com.app.controller.GeoMap"
+			xmlns:html="http://www.w3.org/1999/xhtml">
 	<App>
-		<pages>
 			<Page title="Náhľad mapy"
 				  class="sapUiContentPadding">
-				<content></content>
+		    	<l:FixFlex class="fixFlexVertical" fixFirst="true">
+		    		<l:fixContent>
+		    			<Panel expandable="true"
+		    				   expanded="false">
+		    				<headerToolbar>
+			    				<Toolbar>
+			    					<Title text="{i18n>mapDescription}"/>
+			    				</Toolbar>
+			    			</headerToolbar>
+			    			<content>
+			    				<Vbox class="sapUiTinyMargin">
+			    					<Text text="Sample text above the map container."/>
+			    				</Vbox>
+			    			</content>
+		    			</Panel>
+		    		</l:fixContent>
+		    		
+		    		<l:flexContent>
+		    			<vk:MapContainer autoAdjustHeight="true">
+		    				<vk:content>
+		    					
+		    					<vk:ContainerContent title="{i18n>geoMap}" icon="sap-icon://map-2">
+		    						<vk:content>
+		    							<vbm:GeoMap id="geoMap"
+		    							initialZoom="7"
+		    							initialPosition="49.218333;18.725222;0.0"
+		    							/>
+		    						</vk:content>
+		    					</vk:ContainerContent>
+		    					
+		    					<!-- ***  PRIDANIE DLAŽDICE DO MAPY *** -->
+		    					<!--<vk:ContainerContent title="{i18n>analyticalMap}" icon="sap-icon://choropleth-chart">-->
+		    					<!--	<vk:content>-->
+		    					<!--		<vbm:AnalyticMap id="vbi2">-->
+		    								
+		    					<!--		</vbm:AnalyticMap>-->
+		    					<!--	</vk:content>-->
+		    					<!--</vk:ContainerContent>-->
+		    					
+		    				</vk:content>
+		    			</vk:MapContainer>
+		    		</l:flexContent>
+		    	</l:FixFlex>
 			</Page>
-		</pages>
 	</App>
 </mvc:View>
