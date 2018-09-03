@@ -33,8 +33,8 @@
 		    					<vk:ContainerContent title="{i18n>geoMap}" icon="sap-icon://map-2">
 		    						<vk:content>
 		    							<vbm:GeoMap id="geoMap"
-		    							initialZoom="7"
-		    							initialPosition="49.218333;18.725222;0.0"
+		    							initialPosition = "49;18;0"
+		    							initialZoom = "7"
 		    							/>
 		    						</vk:content>
 		    					</vk:ContainerContent>
