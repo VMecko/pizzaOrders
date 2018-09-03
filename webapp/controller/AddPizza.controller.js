@@ -3,7 +3,7 @@ sap.ui.define([
 	"sap/ui/core/routing/History"
 ], function(Controller, History) {
 	"use strict";
-
+	 var globalVar = "globalVar";
 	return Controller.extend("com.app.controller.AddPizza", {
 
 		/**
@@ -12,7 +12,19 @@ sap.ui.define([
 		 * @memberOf com.app.view.addPizza
 		 */
 		onInit: function() {
-				
+			console.log($.sap.myVar);
+			console.log(sap.ui.getCore().AppContext.RandomVariable);
+//			UIComponent.prototype.init.apply(this, arguments);
+			// globalVar = this;
+			
+			// var oData = {
+			// 		recipient: {
+			// 			name: "World"
+			// 		}
+			// };
+			
+			// var oModel = new JSONModel(oData);       //create model
+			// this.setModel(oModel, "userModel");      //set model to component
 		},
 		
 		onNavBack : function() {

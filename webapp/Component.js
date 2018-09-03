@@ -32,6 +32,13 @@ sap.ui.define([
 
 				// create the views based on the url/hash
 				this.getRouter().initialize();
+				
+				//method 2 from Document
+				$.sap.myVar = "global?";
+				
+				//method 3 from Document
+				sap.ui.getCore().AppContext = new Object();
+				sap.ui.getCore().AppContext.RandomVariable = "random";
 			},
 
 			/**

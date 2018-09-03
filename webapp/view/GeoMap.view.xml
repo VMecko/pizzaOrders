@@ -4,6 +4,7 @@
 			xmlns="sap.m"
 			xmlns:vk="sap.ui.vk" 
 			xmlns:l = "sap.ui.layout"
+			xmlns:commons="sap.ui.commons"
   		    controllerName="com.app.controller.GeoMap"
 			xmlns:html="http://www.w3.org/1999/xhtml">
 	<App>
@@ -34,8 +35,30 @@
 		    						<vk:content>
 		    							<vbm:GeoMap id="geoMap"
 		    							initialPosition = "49;18;0"
-		    							initialZoom = "7"
-		    							/>
+		    							initialZoom = "1">
+		    							
+		    							<vbm:Spots click="onClickItem" posChangeable="true"
+											scaleChangeable="false" contextMenu="onContextMenuItem" items="{/Spots/items}">
+											<vbm:items>
+												<vbm:Spot id="Spot" position="{pos}" tooltip="{tooltip}"
+													type="{type}" text="{text}" contentOffset="{contentOffset}"
+													click="onClickSpot" contextMenu="onContextMenuSpot">
+												</vbm:Spot>
+											</vbm:items>
+										</vbm:Spots>
+		    								
+		    							<vbm:Spots>
+											<vbm:Spot id="SAPSpot" position="8.641568;49.293789;0"
+												click="onClickSpot" contextMenu="onContextMenuSpot">
+											</vbm:Spot>
+										</vbm:Spots>	
+		    								
+		    							<vbm:legend>
+											<vbm:Legend id="legend" caption="Legend">
+												<vbm:LegendItem text="Default spot" image="PinBlue.png"/>
+											</vbm:Legend>
+										</vbm:legend>
+									</vbm:GeoMap>
 		    						</vk:content>
 		    					</vk:ContainerContent>
 		    					

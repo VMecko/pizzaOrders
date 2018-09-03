@@ -1,6 +1,8 @@
 sap.ui.define([
-	"sap/ui/core/mvc/Controller"
-], function(Controller) {
+	"sap/ui/core/mvc/Controller",
+	"sap/ui/model/json/JSONModel",
+	"sap/ui/Device"
+], function(Controller, JSONModel, Device) {
 	"use strict";
 
 	return Controller.extend("com.app.controller.GeoMap", {
@@ -11,10 +13,15 @@ sap.ui.define([
 		 * @memberOf com.app.view.GeoMap
 		 */
 		onInit: function() {
-			var accessTokenMapbox = "pk.eyJ1Ijoidm1lY2tvIiwiYSI6ImNqbGhyYWFuNzFnamYzcHFnMHJmd3YxM3oifQ.bZfkXNGoZ8e5tHwqBPinlA";
+			var oModel = new sap.ui.model.json.JSONModel("/webapp/model/mapSpots.json");
+			this.getView().setModel(oModel);
 			
-			
+			var oDeviceModel = new JSONModel(Device);
+			oDeviceModel.setDefaultBindingMode("OneWay");
+			this.getView().setModel(oDeviceModel,"device");
 			// MAP CONF CEZ MAPBOX API
+			
+			// var accessTokenMapbox = "pk.eyJ1Ijoidm1lY2tvIiwiYSI6ImNqbGhyYWFuNzFnamYzcHFnMHJmd3YxM3oifQ.bZfkXNGoZ8e5tHwqBPinlA";
 			
 			// var defaultUrlMBA = accessTokenMapbox == "NOT CONFIGURED" | undefined ? "https://a.tile.openstreetmap.org/{LOD}/{X}/{Y}.png" : "https://api.mapbox.com/styles/v1/mapbox/light-v9/tiles/256/{LOD}/{X}/{Y}@2x?access_token=" + accessTokenMapbox ;
 			// var defaultCopyrightMB = accessTokenMapbox == "NOT CONFIGURED" | undefined ? "Tile courtesy of OpenStreetMap" : "{LINK|© Mapbox}&nbsp;<a href='http://www.openstreetmap.org/copyright'>© OpenStreetMap<\/a>&nbsp;<a href='https://www.mapbox.com/map-feedback/'>Improve this map<\/a>&nbsp;&nbsp;&nbsp;{LINK|IMG}" ;
