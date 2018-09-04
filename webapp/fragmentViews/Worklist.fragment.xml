@@ -17,6 +17,10 @@
 				select="showGeoMap"
 				icon="sap-icon://globe"/>
 			<u:MenuItem
+				text="Weather"
+				select="showWeather"
+				icon="sap-icon://weather-proofing"/>
+			<u:MenuItem
 				text="{i18n>export}"
 				icon="sap-icon://open-command-field"
 				>

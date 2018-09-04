@@ -119,6 +119,11 @@
 					"target": "addPizza"
 				},
 				{
+					"pattern": "Weather",
+					"name": "weather",
+					"target": "weather"
+				},
+				{
 					"pattern": "GeoMap",
 					"name": "geoMap",
 					"target": "geoMap"
@@ -146,6 +151,11 @@
 				"addPizza": {
 					"viewName": "AddPizza",
 					"viewId": "addPizza",
+					"viewLevel": 2
+				},
+				"weather": {
+					"viewName": "Weather",
+					"viewId": "weather",
 					"viewLevel": 2
 				},
 				"geoMap": {

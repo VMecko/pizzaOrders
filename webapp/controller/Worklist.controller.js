@@ -255,6 +255,10 @@ sap.ui.define([
 				this.getRouter().navTo("addPizza");
 			},
 			
+			showWeather: function(oEvent) {
+				this.getRouter().navTo("weather");	
+			},
+			
 			showGeoMap: function(oEvent) {
 				this.getRouter().navTo("geoMap");	
 			},
