@@ -157,20 +157,33 @@ sap.ui.define([
 			},
 
 			onSearch : function (oEvent) {
-				if (oEvent.getParameters().refreshButtonPressed) {
-					// Search field's 'refresh' button has been pressed.
-					// This is visible if you select any master list item.
-					// In this case no new search is triggered, we only
-					// refresh the list binding.
-					this.onRefresh();
-				} else {
-					var oTableSearchState = [];
-					var sQuery = oEvent.getParameter("query");
-					if (sQuery && sQuery.length > 0) {
-						oTableSearchState.push(new Filter("Zoid", FilterOperator.Contains, sQuery));
-					}
-					this._applySearch(oTableSearchState);
+				var aFilters = [];
+				var sQuery = oEvent.getSource().getValue();
+				if(sQuery && sQuery.length > 0) {
+					var filter = new Filter("Zoid", sap.ui.model.FilterOperator.Contains, sQuery);
+					aFilters.push(filter);
 				}
+				
+				var list = this.getView().byId("table");
+				// console.log(list);
+				var binding = list.getBinding("items");
+				binding.filter(aFilters, "Application");
+			
+				// if (oEvent.getParameters().refreshButtonPressed) {
+				// 	// Search field's 'refresh' button has been pressed.
+				// 	// This is visible if you select any master list item.
+				// 	// In this case no new search is triggered, we only
+				// 	// refresh the list binding.
+				// 	this.onRefresh();
+				// } else {
+				// 	var oTableSearchState = [];
+				// 	var sQuery = oEvent.getParameter("query");
+				// 	console.log(sQuery);
+				// 	if (sQuery && sQuery.length > 0) {
+				// 		oTableSearchState.push(new Filter("Zoid", FilterOperator.Contains, sQuery));
+				// 	}
+				// 	this._applySearch(oTableSearchState);
+				// }
 
 			},
 
@@ -209,7 +222,9 @@ sap.ui.define([
 				var oTable = this.getView().byId("table"),
 					oViewModel = this.getModel(),
 				oBinding = oTable.getBinding("items");
+				console.log(oBinding);
 				oBinding.filter(oTableSearchState);
+				console.log(oBinding);
 				// changes the noDataText of the list in case there are no filter results
 				if (oTableSearchState.length !== 0) {
 					oViewModel.setProperty("/tableNoDataText", this.getResourceBundle().getText("worklistNoDataWithSearchText"));

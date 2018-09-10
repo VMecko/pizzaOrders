@@ -4,6 +4,11 @@
 	<Page
 		title="Page"
 		class="sapUiContentPadding" >
+					<Image
+					alt = "Tu mal byť obrázok ale niečo sa nepodarilo :(" 
+					src = "http://www.stickpng.com/assets/images/580b57fcd9996e24bc43c1e1.png"
+					height="7%"
+					></Image>
 		<List
 			headerText="{i18n>addOrder}">
 			<InputListItem label="{i18n>customer}">
