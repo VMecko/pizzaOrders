@@ -164,9 +164,12 @@ sap.ui.define([
 					aFilters.push(filter);
 				}
 				
-				var list = this.getView().byId("table");
-				// console.log(list);
+				var list = this.byId("table");
+				//console.log(list);
 				var binding = list.getBinding("items");
+				//var bind = this.getView().getBindingContext().getPath();
+				// console.log(binding);
+				//console.log(bind);
 				binding.filter(aFilters, "Application");
 			
 				// if (oEvent.getParameters().refreshButtonPressed) {
