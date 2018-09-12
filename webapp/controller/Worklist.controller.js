@@ -165,29 +165,8 @@ sap.ui.define([
 				}
 				
 				var list = this.byId("table");
-				//console.log(list);
 				var binding = list.getBinding("items");
-				//var bind = this.getView().getBindingContext().getPath();
-				// console.log(binding);
-				//console.log(bind);
 				binding.filter(aFilters, "Application");
-			
-				// if (oEvent.getParameters().refreshButtonPressed) {
-				// 	// Search field's 'refresh' button has been pressed.
-				// 	// This is visible if you select any master list item.
-				// 	// In this case no new search is triggered, we only
-				// 	// refresh the list binding.
-				// 	this.onRefresh();
-				// } else {
-				// 	var oTableSearchState = [];
-				// 	var sQuery = oEvent.getParameter("query");
-				// 	console.log(sQuery);
-				// 	if (sQuery && sQuery.length > 0) {
-				// 		oTableSearchState.push(new Filter("Zoid", FilterOperator.Contains, sQuery));
-				// 	}
-				// 	this._applySearch(oTableSearchState);
-				// }
-
 			},
 
 			/**
