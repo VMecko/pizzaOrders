@@ -15,9 +15,12 @@
 				<IconTabFilter icon="sap-icon://lead" iconColor="Critical" text="Under 15" key="below15"/>
 				<IconTabFilter icon="sap-icon://money-bills" iconColor="Positive" text="Above 15" key="above15"/>
 			</items>
+			</IconTabBar>
 			<content>
 			<Table id="table" width="auto" class="sapUiResponsiveMargin" 
-			items="{/OrderListSet}"
+			items="{
+			path: '/OrderListSet'
+			}"
 			noDataText="{worklistView>/tableNoDataText}" 
 			busyIndicatorDelay="{worklistView>/tableBusyDelay}" 
 			growing="true" 
@@ -29,7 +32,7 @@
 					<Toolbar>
 						<Title id="tableHeader" text="{worklistView>/worklistTableTitle}"/>
 						<ToolbarSpacer/>
-						<SearchField id="searchField" tooltip="{i18n>worklistSearchTooltip}" search="onSearch" width="auto">
+						<SearchField id="searchField" tooltip="{i18n>worklistSearchTooltip}" liveChange="onSearch" width="auto">
 						</SearchField>
 					</Toolbar>
 				</headerToolbar>
@@ -64,7 +67,6 @@
 				</items>
 			</Table>
 			</content>
-					</IconTabBar>
 
 
 		</Page>

@@ -199,6 +199,8 @@ sap.ui.define([
 				var oTable = this.byId("table");
 				oTable.getBinding("items").refresh();
 			},
+			
+			
 
 			/* =========================================================== */
 			/* internal methods                                            */
@@ -235,38 +237,21 @@ sap.ui.define([
 			},
 			
 			onQuickFilter: function(oEvent) {
-				// var sKey = oEvent.getParameter("key"),
-				// oFilter = this._pizzaPriceFilters[sKey],
-				// oBinding = this._oTable.getBinding("items");
-				// console.log(sKey);
-				// oBinding.filter(oFilter);
-				
+				var aFilters = [];
 				var sKey = oEvent.getParameter("key");
-				var oModel = this.getView().getModel();
-				var resultData = [];
+				var list = this.byId("table");
 				
-				oModel.read("/OrderListSet",{
-					success: function(oData_verified, responset_verified) {
-						
-						if(sKey === "below15"){
-							for(var i = 0; i < oData_verified.results.length;i++) {
-								if(Number(oData_verified.results[i].Zprice) < 15) {
-									resultData.push(oData_verified.results[i]);
-								}
-							}
+				if(sKey === "below15"){
+							var filter = new Filter("Zprice", sap.ui.model.FilterOperator.LT, 15);
+							aFilters.push(filter);
 						}
-						
-						if(sKey === "above15"){
-							for(var i = 0; i < oData_verified.results.length;i++) {
-								if(Number(oData_verified.results[i].Zprice) > 15) {
-									resultData.push(oData_verified.results[i]);
-								}
-							}
-						}
-						
-					}
-					
-				});
+				else if (sKey === "above15"){
+					filter = new Filter("Zprice", sap.ui.model.FilterOperator.GE, 15); //no jo, kvoli var to uz je deklarovane.......
+					aFilters.push(filter);
+				}
+				var binding = list.getBinding("items");
+				binding.filter(aFilters, "Application");
+				
 			},
 			
 			addOrder: function(oEvent) {
